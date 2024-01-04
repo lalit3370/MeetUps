@@ -6,7 +6,7 @@ import styles from './Styles';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Text>Register Screen</Text>
       <StatusBar style='auto' />
     </View>
   );

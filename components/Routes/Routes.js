@@ -1,17 +1,15 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../Screens/Home';
-
-const Stack = createNativeStackNavigator();
-
+import React, {useContext} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import PublicRoutes from './PublicRoutes/PublicRoutes';
+import PrivateRoutes from './PrivateRoutes/PrivateRoutes';
+import {AuthContext} from '../Context/Auth';
 
 function Routes() {
+  const {authToken} = useContext(AuthContext);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
+      {authToken ? <PrivateRoutes /> : <PublicRoutes />}
     </NavigationContainer>
   );
 }
